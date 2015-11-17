@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Randam DIV</title>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.5";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+	<script language="JavaScript" type="text/javascript">
+		jQuery(function($) {
+			$.fn.extend({
+				randomdisplay : function(num) {
+					return this.each(function() {
+						var chn = $(this).children().hide().length;
+						for(var i = 0; i < num && i < chn; i++) {
+							var r = parseInt(Math.random() * (chn - i)) + i;
+							$(this).children().eq(r).show().prependTo($(this));
+						}
+					});
+				}
+			});
+
+			$(function(){
+				$("[randomdisplay]").each(function() {
+					$(this).randomdisplay($(this).attr("randomdisplay"));
+				});
+			});
+		});
+	</script>
+	<script>
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+	</script>
+	<style type="text/css">
+		.content{
+			border: 5px solid pink;
+		}
+	</style>
+</head>
+<body>
+	<div id="fb-root"></div>
+	<div>以下の4つのコンテンツの位置をランダムで配置するプログラム</div>
+	<div class="content">
+		<div randomdisplay="100">
+			<div style="border: 1px solid red;">
+				<a class="twitter-timeline" href="https://twitter.com/yukky33142405" data-widget-id="518361704246153217" data-width="500" data-height="400">@yukky33142405さんのツイート</a>
+			</div>
+			<div style="border: 1px solid black;" class="fb-page" data-href="https://www.facebook.com/NewTral-748916765212449/" data-width="500" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true">
+			</div>
+			<div style=="border: 1px solid blue;">
+				<a href="#">
+					てきとー<br />
+					てきとー<br />
+					てきとー<br />
+					てきとー<br />
+					てきとー<br />
+				</a>
+			</div>
+			<div style="border: 1px solid green;">
+				<a href="#">suitable<br />
+					suitable<br />
+					suitable<br />
+					suitable<br />
+					suitable<br />
+					suitable<br />
+				</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+</script>
